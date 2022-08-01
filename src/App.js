@@ -1,6 +1,7 @@
 
 import './assets/css/menu.css';
 import './assets/css/menu_gird.css';
+import 'antd/dist/antd.css';
 import { Component } from 'react';
 import Menu from './containers/home/menu/Menu';
 import { connect } from 'react-redux';

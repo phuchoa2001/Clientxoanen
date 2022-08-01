@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { API_URL } from "../../contants/Config";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router";
 import io from "socket.io-client";
+import { WechatOutlined } from "@ant-design/icons";
+
+import { API_URL } from "../../contants/Config";
 import "./index.css";
 import "./girl.css";
 import * as ActionsLoading from "../../actions/Loading";
@@ -12,8 +14,10 @@ function Mesger(props) {
   const [listmenber, setListmenber] = useState([]);
   const [listMessger, setlistMessger] = useState([]);
   const [textareaText, settextareaText] = useState("");
+  const [open , setOpen] = useState(false);
   const dispatch = useDispatch();
   const socketIO = useRef();
+  const textareaTextRef = useRef();
   const { id } = props.match.params;
   const send = useRef();
   function StartMessger() {
@@ -43,6 +47,7 @@ function Mesger(props) {
       var x = event.which || event.keyCode;
       if (x === 13) {
         send.current.click();
+        textareaTextRef.current.setSelectionRange(0, 0);
       }
     };
   }
@@ -66,6 +71,7 @@ function Mesger(props) {
     socketIO.current.emit("newroom", { room: listroom[index], name: name });
   }
   function handleChat() {
+    textareaTextRef.current.focus();
     socketIO.current.emit("ChatMessger", {
       text: textareaText,
       room: props.match.params.id,
@@ -84,7 +90,7 @@ function Mesger(props) {
   }
   return (
     <div className="row messger  g-0 gx-5">
-      <div className="col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 box-username">
+      <div className={`col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 box-username ${open ? "open" : "close"}`}>
         <div className="row shadow-sm  bg-body rounded username g-0">
           <p className="messger-name">
             Chào bạn : <span>{name}</span>
@@ -107,14 +113,17 @@ function Mesger(props) {
             ))}
           </div>
           <p>-Nhóm công khải-</p>
-          <button className="messger-btn" onClick={handleCreateRoom}>
+          <button className="messger-btn " onClick={handleCreateRoom}>
             Tạo phòng công khải
+          </button>
+          <button className="messger-btn show--mobile" onClick={() => setOpen(false)}>
+            Rời khỏi
           </button>
           <div className="group">
             {listroom.map((room, index) => (
               <a key={index} href="#/" index={index} onClick={handleindex_A}>
                 {room}
-                <span>
+                <span>  
                   <i className="fa fa-users" aria-hidden="true"></i>
                 </span>
               </a>
@@ -126,6 +135,9 @@ function Mesger(props) {
         <p>
           Nhóm Chat <span>ID: {id}</span>
         </p>
+        <div className="icon-message" onClick={() => setOpen(prev => !prev)}>
+            <WechatOutlined style={{ fontSize: 20 }} />
+          </div>
         <div className="frames-messger">
           <div className="list-messger">
             {listMessger.map((messger, index) => (
@@ -142,6 +154,7 @@ function Mesger(props) {
             placeholder="Nhập chat tại đây"
             value={textareaText}
             onChange={handleTextareaText}
+            ref={textareaTextRef}
           ></textarea>
           <div className="send" onClick={handleChat} ref={send}>
             <i className="fa fa-paper-plane send-icon" aria-hidden="true"></i>

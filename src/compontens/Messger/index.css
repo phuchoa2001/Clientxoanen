@@ -37,6 +37,8 @@
 .ground-messger p {
     text-align: center;
     font-weight: 700;
+    line-height: 22px;
+    position: relative;
 }
 .frames-messger {
     height: 80%;
@@ -45,6 +47,7 @@
 }
 .frames-messger .name {
     text-align: left;
+    display: block;
 }
 .frames-messger .name span {
     font-weight: 300;
@@ -93,4 +96,21 @@
 }
 .list .group .frames-messger {
     overflow: scroll;
+}
+.icon-message {
+    padding: 8px;
+    display: flex;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid blue;
+    width: auto;
+    position: absolute;
+    z-index: 99;
+    right: 20px;
+    display: none;
+    top : 100px;
+    
+}
+.show--mobile {
+    display: none;
 }

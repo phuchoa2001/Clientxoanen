@@ -1,19 +1,52 @@
 @media only screen and (min-width: 0px) and (max-width: 768px) {
-    .box-username {
-        order: 2;
-    }
-    .ground-messger {
-        order: 1;
-        height: 800px;
-        margin-bottom: 10px;
-    }
-    .gx-5 {
-        --bs-gutter-x: 0px;
-    }
-    .frames-messger .name {
-        margin-left: 10px;
-    }
-    .messger .enterChat {
-        padding-left: 3%;
-    }
+  .box-username {
+    order: 2;
+  }
+  .ground-messger {
+    order: 1;
+    height: 100vh;
+    margin-bottom: 10px;
+  }
+  .gx-5 {
+    --bs-gutter-x: 0px;
+  }
+  .frames-messger .name {
+    margin-left: 10px;
+  }
+  .messger .enterChat {
+    padding-left: 3%;
+  }
+  .box-username {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    bottom: 0;
+    height: 100vh;
+    display: none;
+    z-index: 999;
+  }
+  .icon-message  {
+    display: block;
+    right: 50px;
+  }
+  .close {
+    display: none;
+  }
+  .open {
+    display: block;
+  }
+  .show--mobile {
+    display: block;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+  .send {
+    height: 55px !important;
+  }
+  .icon-message  {
+    display: block;
+    right: 20px;
+  }
 }
