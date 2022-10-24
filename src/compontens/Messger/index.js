@@ -4,6 +4,8 @@ import { withRouter } from "react-router";
 import io from "socket.io-client";
 import { WechatOutlined } from "@ant-design/icons";
 
+import Message from "../Message";
+
 import { API_URL } from "../../contants/Config";
 import "./index.css";
 import "./girl.css";
@@ -14,7 +16,7 @@ function Mesger(props) {
   const [listmenber, setListmenber] = useState([]);
   const [listMessger, setlistMessger] = useState([]);
   const [textareaText, settextareaText] = useState("");
-  const [open , setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const socketIO = useRef();
   const textareaTextRef = useRef();
@@ -90,6 +92,10 @@ function Mesger(props) {
   }
   return (
     <div className="row messger  g-0 gx-5">
+      <Message>
+        <p>Server mới không hỗ trợ Socket Io
+          . nên chúng tôi sẽ sớm fix nó theo thời gian rảnh</p>
+      </Message>
       <div className={`col col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 box-username ${open ? "open" : "close"}`}>
         <div className="row shadow-sm  bg-body rounded username g-0">
           <p className="messger-name">
@@ -123,7 +129,7 @@ function Mesger(props) {
             {listroom.map((room, index) => (
               <a key={index} href="#/" index={index} onClick={handleindex_A}>
                 {room}
-                <span>  
+                <span>
                   <i className="fa fa-users" aria-hidden="true"></i>
                 </span>
               </a>
@@ -136,8 +142,8 @@ function Mesger(props) {
           Nhóm Chat <span>ID: {id}</span>
         </p>
         <div className="icon-message" onClick={() => setOpen(prev => !prev)}>
-            <WechatOutlined style={{ fontSize: 20 }} />
-          </div>
+          <WechatOutlined style={{ fontSize: 20 }} />
+        </div>
         <div className="frames-messger">
           <div className="list-messger">
             {listMessger.map((messger, index) => (

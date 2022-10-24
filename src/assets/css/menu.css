@@ -2,9 +2,11 @@
   padding: 0;
   margin: 0;
   font-family: "Quicksand", sans-serif;
+  
 }
 body {
-  background: #f5f6f7;
+  background: #fff;
+  scroll-behavior: smooth;
 }
 .app-item {
   min-height: 200px;
@@ -13,9 +15,9 @@ body {
 .menu-item-title {
   min-height: 50px;
 }
-.menu-item-text {
+/* .menu-item-text {
   min-height: 180px;
-}
+} */
 .menu-img {
   height: 250px;
 }

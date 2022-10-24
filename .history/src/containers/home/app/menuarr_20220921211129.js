@@ -135,5 +135,21 @@ var array = [
     url: "http://xoanen-podcast.surge.sh",
     Goverment: false,
   },
+  { 
+    name: "Học cùng tôi.",
+    Context:
+      "Học cùng tôi... CSS ANIMATION",
+    img: "/img/xoanen.png",
+    url: "https://xn-cssanimation.surge.sh/",
+    Goverment: false,
+  },
+  { 
+    name: "Admin Xóa nền ",
+    Context:
+      "Admin xoá nền . bạn có thể thăm quan",
+    img: "/img/xoanen.png",
+    url: "https://xn-cssanimation.surge.sh/",
+    Goverment: false,
+  },
 ];
 export default array;

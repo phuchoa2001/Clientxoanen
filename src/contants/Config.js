@@ -1,6 +1,6 @@
 
-let PORT = "https://xoanen.herokuapp.com";
-// http://localhost:3001 https://xoanen.herokuapp.com
+let PORT = "https://xoanen.vercel.app";
+//  https://xoanen.vercel.app/ http://localhost:3001
 export const API_URL = PORT;
 export const API_URL_UPDATEAVATAR = `${PORT}/profile/updateavatar`;
 export const API_URL_UPBEERPHOTO = `${PORT}/profile/updatebeerphoto`;

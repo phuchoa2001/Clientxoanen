@@ -6,15 +6,27 @@ import App from "./App";
 // import Baotri from "./compontens/baotri";
 import ProvierAuth from "./compontens/admin/auth/Provider";
 import createstore from "./store";
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
+
 const store = createstore();
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ProvierAuth>
+  <Provider store={store}>
+    <ProvierAuth>
+      <QueryClientProvider client={queryClient}>
         <App />
-      </ProvierAuth>
-    </Provider>
-  </React.StrictMode>,
+      </QueryClientProvider>
+    </ProvierAuth>
+
+  </Provider>,
   document.getElementById("root")
 );
 reportWebVitals();
