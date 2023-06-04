@@ -11,8 +11,8 @@ const Navlinkmenu = [
       exact: false 
     } ,  
     {
-      name: "Nhắn Tin Nhóm"  , 
-      to : '/Messger/index' , 
+      name: "Cắt Icon"  , 
+      to : '/cuticon' , 
       exact: false 
     }, 
     {

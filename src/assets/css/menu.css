@@ -57,6 +57,7 @@ body {
   display: block;
   color: #333;
   font-weight: 700;
+  width: 100%;
 }
 .header_avatar {
   width: 20px;
