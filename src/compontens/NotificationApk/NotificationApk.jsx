@@ -5,7 +5,9 @@ import { sendDataToReactNative } from '../../commons/React Native/reactNative';
 export default function NotificationApk() {
 
   useEffect(() => {
-    sendDataToReactNative({ message: "test" })
+    setInterval(() => {
+      sendDataToReactNative({ message: "test" })
+    } , [5000])
   }, [])
 
   return (
