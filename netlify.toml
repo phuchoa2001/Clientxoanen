@@ -1,0 +1,7 @@
+[build]
+  command = "npm install && npm run build"  # Cập nhật lệnh xây dựng tùy thuộc vào dự án của bạn
+  publish = "build"  # Cập nhật thư mục xuất bản tùy thuộc vào dự án của bạn
+  functions = "functions"  # Nếu bạn sử dụng Netlify Functions, cập nhật thư mục tương ứng
+
+[build.environment]
+  NODE_VERSION = "14.9.0"
