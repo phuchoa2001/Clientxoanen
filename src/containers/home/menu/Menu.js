@@ -9,6 +9,7 @@ import Boxemail from "../../../compontens/username/Email/boxemail"
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import router from '../../../router/index';
 import MenuPc from "./menupc";
+import NotificationApk from "../../../compontens/NotificationApk/NotificationApk";
 class menu extends Component {
   componentDidMount() {
     if (window.innerWidth > 1023) {
@@ -30,6 +31,7 @@ class menu extends Component {
           <Menumobile />
           < MenuPc isDisplayMenu={isDisplayMenu} hidemenu={this.hidemenu} />
           {verifyEmail}
+          <NotificationApk />
           <Switch>
             {this.showRouter(router)}
           </Switch>
