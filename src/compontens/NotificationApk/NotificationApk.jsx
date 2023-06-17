@@ -1,25 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, Button } from 'antd';
 import { sendDataToReactNative } from '../../commons/React Native/reactNative';
 
 export default function NotificationApk() {
+  const [isShow , setIsShow] = useState(true);
 
   useEffect(() => {
-    setInterval(() => {
-      sendDataToReactNative({ message: "test" })
-    }, [5000])
-
-    window.addEventListener('message', handleMessage);
-
-    function handleMessage(event) {
-      const message = event.data; // Thông điệp từ ứng dụng React Native
-      console.log('Received message:', message);
-
-      // Xử lý thông điệp theo nhu cầu của bạn
+    if(window?.isNativeApp) {
+      setIsShow(false);
     }
+  }, [window.isNativeApp])
 
-  }, [])
-
+  if(!isShow) {
+    return <></>
+  }
+  
   return (
     <div>
       <Alert
