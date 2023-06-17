@@ -17,7 +17,6 @@ export default function NotificationApk() {
 
       // Xử lý thông điệp theo nhu cầu của bạn
     }
-
   }, [])
 
   return (
