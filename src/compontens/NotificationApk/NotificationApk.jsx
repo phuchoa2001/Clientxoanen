@@ -7,7 +7,17 @@ export default function NotificationApk() {
   useEffect(() => {
     setInterval(() => {
       sendDataToReactNative({ message: "test" })
-    } , [5000])
+    }, [5000])
+
+    window.addEventListener('message', handleMessage);
+
+    function handleMessage(event) {
+      const message = event.data; // Thông điệp từ ứng dụng React Native
+      console.log('Received message:', message);
+
+      // Xử lý thông điệp theo nhu cầu của bạn
+    }
+
   }, [])
 
   return (
