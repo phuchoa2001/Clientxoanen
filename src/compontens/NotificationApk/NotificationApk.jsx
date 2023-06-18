@@ -3,18 +3,23 @@ import { Alert, Button } from 'antd';
 // import { sendDataToReactNative } from '../../commons/React Native/reactNative';
 
 export default function NotificationApk() {
-  const [isShow , setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState("loading");
 
   useEffect(() => {
-    if(window?.isNativeApp) {
-      setIsShow(false);
+    function eventHandlerReact(event) {
+      if (event?.detail?.type === "IS_REACT_NATIVE") {
+        setIsShow("hide");
+        return;
+      }
+      setIsShow("show")
     }
-  }, [window.isNativeApp])
+    window.addEventListener('ReactNativeToDataWeb', eventHandlerReact);
+  }, []);
 
-  if(!isShow) {
+  if (isShow === "loading" || isShow === "hide") {
     return <></>
   }
-  
+
   return (
     <div>
       <Alert
