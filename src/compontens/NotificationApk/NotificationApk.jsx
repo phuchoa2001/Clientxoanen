@@ -10,7 +10,6 @@ export default function NotificationApk() {
       setIsShow(false);
     }
   }, [window.isNativeApp])
-
   if(!isShow) {
     return <></>
   }
