@@ -19,7 +19,6 @@ export default function NotificationApk() {
   if (isShow === "loading" || isShow === "hide") {
     return <></>
   }
-
   return (
     <div>
       <Alert
