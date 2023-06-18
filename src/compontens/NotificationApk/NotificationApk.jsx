@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button } from 'antd';
-import { sendDataToReactNative } from '../../commons/React Native/reactNative';
+// import { sendDataToReactNative } from '../../commons/React Native/reactNative';
 
 export default function NotificationApk() {
   const [isShow , setIsShow] = useState(true);
